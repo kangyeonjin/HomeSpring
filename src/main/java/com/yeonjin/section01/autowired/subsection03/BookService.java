@@ -1,4 +1,4 @@
-package com.yeonjin.section01.autowired.subsection01.field;
+package com.yeonjin.section01.autowired.subsection03;
 
 import com.yeonjin.section01.autowired.common.BookDAO;
 import com.yeonjin.section01.autowired.common.BookDTO;
@@ -7,18 +7,21 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("bookServiceField")
+@Service("bookServiceSetter")
 public class BookService {
 
-    @Autowired
     private BookDAO bookDAO;
 
-    public List<BookDTO> selectAllBooks() {
-        return bookDAO.selectBookList();
+    @Autowired
+    public void setBookDAO(BookDAO bookDAO){
+        this.bookDAO = bookDAO;
     }
 
     public BookDTO searchBookBySequence(int sequence) {
         return bookDAO.selectOneBook(sequence);
     }
 
+    public List<BookDTO> selectAllBooks() {
+        return bookDAO.selectBookList();
+    }
 }
