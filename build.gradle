@@ -31,3 +31,7 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+war {
+    archiveFileName = 'Servlet-1.0-SNAPSHOT.war'
+}
